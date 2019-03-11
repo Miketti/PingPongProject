@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/register.css">
+    <title>Create an account</title>
+</head>
+
+<body onload="generate_trial()">
+    <div class="register_div">
+        <h1>Create an account</h1>
+        <p class="register_p_u">Please give a valid email address, an username and a password to create an account.</p>
+        <form action="/u_register" method="POST">
+            <label for="myemail">Please type your email:</label>
+            <input type="text" name="email"> 
+            <span class="errorspan"></span>
+            <span class="errorspan"></span><br>
+            <label for="myusername">Please type your username:</label>
+            <input type="text" name="username"><br>
+            <span class="errorspan"></span>
+            <span class="errorspan"></span><br>
+            <label for="mypassword">Please type your password:</label>
+            <input type="password" name="password"><br>
+            <span class="errorspan"></span><br>
+            <label for="myconfirmpassword">Please confirm your password:</label>
+            <input type="password" name="cpassword"><br>
+            <span class="errorspan"></span><br>
+            <button type="submit">Create an account!</button>
+        </form>
+        <a href="login">Already have an account? Please log in!</a>
+    </div>
+    <div class="generate_account_div">
+        <h2>Generate a trial account!</h2>
+        <p class="register_p_l">If you just want to try or test Ultimate Ping Pong Tournament, you can generate a
+            temporary trial account with ready-made username and password
+            and there are no need for email address. However, trial accounts have some restrictions:</p>
+        <p class="register_p_l"><s style="color:black">&#8226 Trial accounts exists only 24 hours after creation. When
+                the time expires, the
+                account and all its contents will be deleted.</s></p>
+        <p class="register_p_l">&#8226 The username and the password of the trial account will be randomly generated and
+            cannot be changed afterwards. Because no email is used,
+            the password cannot be recovered if it is lost.</p>
+        <p class="register_p_l">&#8226 Possibilities to change user and/or game settings are not available with trial
+            accounts.</p>
+        <form action="/t_register" method="POST">
+            <input type="hidden" id="tutg" name="trial_username_to_generate">
+            <input type="hidden" id="tptg" name="trial_password_to_generate">
+            <button>Generate a trial account!</button>
+        </form>
+    </div>
+    <script>
+        function generate_trial() {
+            let trialuser_name = "";
+            let trialuser_pass = "";
+            const prefix = "user";
+            const number = Math.floor(Math.random() * 899999) + 100000;
+            const character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            trialuser_name = prefix + number.toString();
+            for (let i = 0; i < 8; i++) {
+                trialuser_pass += character_set.charAt(Math.floor(Math.random() * character_set.length));
+            }
+            document.getElementById("tutg").value = trialuser_name;
+            document.getElementById("tptg").value = trialuser_pass;
+        }
+    </script>
+</body>
+
+</html>

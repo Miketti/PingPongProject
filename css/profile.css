@@ -1,0 +1,36 @@
+body {
+    background: orange;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+  }
+  
+  .topbar {
+      overflow: hidden;
+      background: black;
+  }
+  
+  .topbar button {
+      float: left;
+      background: black;
+      color: orange;
+      text-align: center;
+      padding: 1%;
+      text-decoration: none;
+      font-size: calc(10px + 0.5vw);
+      border: none;
+  }
+  
+  .topbar button:hover {
+      background: gray;
+    }
+
+  .profilecontainer {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+  }
+    
+  .gamesettingscontainer, .accountsettingscontainer {    
+    background: white;
+    border: solid 2px;
+    }
