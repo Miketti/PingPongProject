@@ -109,7 +109,7 @@ app.post("/u_register", validateEmail, (req, res) => {
     if (users.length > 0) {
       if (users.find(u => u.username === username)) {
         message.usernameUsed = "Username is already used!";
-        console.log("Username is already user!");
+        console.log("Username is already used!");
       }
       if (users.find(u => u.email === email)) {
         message.emailUsed = "Email is already used!";
@@ -166,7 +166,7 @@ app.post("/t_register", (req, res) => {
     if (err) throw err;
     if (users.length > 0) {
       if (users.find(u => u.username === trial_username_to_generate)) {
-        console.log("Username is already user!");
+        console.log("Username is already used!");
       }
       res.redirect("/register");
     }
@@ -176,6 +176,7 @@ app.post("/t_register", (req, res) => {
         database.collection(db_collection).insertOne({
           username: trial_username_to_generate,
           password: pwd,
+          expireAt: new Date(Date.now() + 1 * 24*3600*1000),
         });
         console.log("Trial account created!");
         res.render("trialaccount", { trial_u: trial_username_to_generate, trial_p: trial_password_to_generate });

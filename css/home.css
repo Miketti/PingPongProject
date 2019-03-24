@@ -1,15 +1,16 @@
 body {
   background: orange;
   text-align: center;
+  font-size: 2vw;
 }
 
 .homespan {
-    font-size: calc(10px + 2vw);
+    font-size: 1.5em;
     padding: 1%;
   }
 
 .home_p {
-  font-size: calc(10px + 4vw);
+  font-size: 2em;
   color: darkgreen;
 }
 
@@ -18,10 +19,9 @@ button {
   color: orange;
   padding: 1%;
   text-align: center;
-  font-size: calc(10px + 0.5vw);
+  font-size: 1em;
 }
 
 button:hover{
   background:green;
-  color: orange;
 }

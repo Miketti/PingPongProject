@@ -1,23 +1,21 @@
-    @media all and (min-width: 50px) {  body  {   font-size:0.1em;  } }
-    @media all and (min-width: 100px) {  body  {   font-size:0.2em;  } }
-    @media all and (min-width: 200px) {  body  {   font-size:0.4em;  } }
-    @media all and (min-width: 300px) {  body  {   font-size:0.6em;  } }
-    @media all and (min-width: 400px) {  body  {   font-size:0.8em;  } }
-    @media all and (min-width: 500px) {  body  {   font-size:1.0em;  } }
-    @media all and (min-width: 500px) {  body  {   font-size:1.2em;  } }
-
 body {
     text-align: center;
     background: orange;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(10px + 0.5vw);
 }
 button {
+    margin: 1%;
     background: darkgreen;
     color: orange;
     padding: 1%;
     text-align: center;
-    font-size: calc(10px + 0.5vw);
+    font-size: 1em;
 }
+
+button:hover{
+    background:green;
+  }
 
 .register_p_u {
     padding: 1%;
@@ -28,12 +26,7 @@ button {
 }
 
 .register_div {
-    width: 90%;
-    max-width: 1200px;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 75%;
     margin:auto;
     border: solid 2px;
     background: white;
@@ -41,12 +34,7 @@ button {
 }
 
 .generate_account_div {
-    width: 90%;
-    max-width: 1200px;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 75%;
     margin:auto;
     border: solid 2px;
     background: white;
@@ -54,4 +42,15 @@ button {
 
 .errorspan {
     color: red;
+}
+
+label{
+    display: inline-block;
+    clear: left;
+    width: 20%;
+    text-align: right;
+}
+
+input {
+  display: inline-block;
 }

@@ -1,34 +1,33 @@
-@media all and (min-width: 50px) {  body  {   font-size:0.1em;  } }
-@media all and (min-width: 100px) {  body  {   font-size:0.2em;  } }
-@media all and (min-width: 200px) {  body  {   font-size:0.4em;  } }
-@media all and (min-width: 300px) {  body  {   font-size:0.6em;  } }
-@media all and (min-width: 400px) {  body  {   font-size:0.8em;  } }
-@media all and (min-width: 500px) {  body  {   font-size:1.0em;  } }
-@media all and (min-width: 500px) {  body  {   font-size:1.2em;  } }
-
 body {
     background: orange;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(10px + 0.5vw);
 }
 button {
     background: darkgreen;
     color: orange;
     padding: 1%;
     text-align: center;
-    font-size: calc(10px + 0.5vw);
+    font-size: 1em;
+    margin: 1%;
 }
+
+button:hover{
+    background:green;
+  }
 
 .trialdiv {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    top: 25%;
+    bottom: 25%;
+    left: 25%;
+    right: 25%;
+    margin: auto;
     padding: 1%;
     border: solid 2px;
     background: white;
+    font-size: 1em;
 }
 
 input[type="text"]

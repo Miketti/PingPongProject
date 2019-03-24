@@ -10,18 +10,16 @@
 <body>
     <div class="trialdiv">
         <h1>Trial account created!</h1>
-        <p class="trial_account_p">Your trial account has been created with following credentials:</p>
+        <p>Your trial account has been created with following credentials:</p>
         <form id="trial_login_form" action="t_login" method="POST">
             Username: <input type="text" id="t_user" readonly name="t_username" value="<%= trial_u %>"><br>
             Password: <input type="text" id="t_pass" readonly name="t_password" value="<%= trial_p %>">
         </form>
-        <p class="trial_account_p"><s style="color:black">The account exists next 24 hours and will be deleted after that.</s></p>
-        <p class="trial_account_p">It is HIGHLY recommeded to copy and save these login credentials e.g. to a text file.
-            The credentials cannot be recovered, if forgotten.</p>
+        <p><s style="color:black">The account exists next 24 hours and will be deleted after that.</s></p>
+        <p>It is HIGHLY recommeded to copy and save these login credentials e.g. to a text file. The credentials cannot be recovered, if forgotten.</p>
 
         <button onclick="copyCredentials()">Copy to clipboard!</button>
-        <p class="trial_account_p">You can now log in with the trial account by clicking the button below. Please use
-            the normal login page for later logins.</p>
+        <p>You can now log in with the trial account by clicking the button below. Please use the normal login page for later logins.</p>
         <button type="submit" form="trial_login_form">Log in now!</button>
     </div>
     <script> //Copies trial account login credentials to the clipboard
