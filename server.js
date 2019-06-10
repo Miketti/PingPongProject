@@ -8,7 +8,8 @@ const PORT = 5000;
 const db_user = "databaseuser"; //Your database account username
 const db_pass = "databaseuser"; //Your database account password
 const db_name = "PingPongDatabase"; //Your database
-const db_collection = "PingPongAccounts"; //Collection of your database
+const account_collection = "PingPongAccounts"; //Collection of your account database
+const trial_account_pool = "TrialAccountPool"; //Collection of pre-made trial accounts
 const db_url = `mongodb://${db_user}:${db_pass}@localhost:27017/${db_name}`;
 let database;
 const SALT_ROUNDS = 10; //Number of rounds the password will be salted using bcrypt
@@ -104,7 +105,7 @@ app.get("/game", redirectLogin, (req, res) => {
 //Register a USER account
 app.post("/u_register", validateEmail, (req, res) => {
   const { email, username, password } = req.body;
-  database.collection(db_collection).find({ $or: [{ username: username }, { email: email }] }).toArray((err, users) => {
+  database.collection(account_collection).find({ $or: [{ username: username }, { email: email }] }).toArray((err, users) => {
     if (err) throw err;
     if (users.length > 0) {
       if (users.find(u => u.username === username)) {
@@ -120,7 +121,7 @@ app.post("/u_register", validateEmail, (req, res) => {
     else {
       bcrypt.hash(password, SALT_ROUNDS, (err, pwd) => {
         if (err) throw err;
-        database.collection(db_collection).insertOne({
+        database.collection(account_collection).insertOne({
           username: username,
           email: email,
           password: pwd,
@@ -136,7 +137,7 @@ app.post("/u_register", validateEmail, (req, res) => {
 //Login with a USER account
 app.post("/u_login", (req, res) => {
   const { username, password } = req.body;
-  database.collection(db_collection).findOne({ username: username }, (err, user) => {
+  database.collection(account_collection).findOne({ username: username }, (err, user) => {
     if (err) throw err;
     if (user) {
       bcrypt.compare(password, user.password, (err, result) => {
@@ -162,7 +163,7 @@ app.post("/u_login", (req, res) => {
 //Generate and register a TRIAL account. Notice that the generated username will be compared to ALL existing usernames, irrespective of whether they are trial accounts or user accounts.
 app.post("/t_register", (req, res) => {
   const { trial_username_to_generate, trial_password_to_generate } = req.body;
-  database.collection(db_collection).find({ username: trial_username_to_generate }).toArray((err, users) => {
+  database.collection(account_collection).find({ username: trial_username_to_generate }).toArray((err, users) => {
     if (err) throw err;
     if (users.length > 0) {
       if (users.find(u => u.username === trial_username_to_generate)) {
@@ -173,7 +174,7 @@ app.post("/t_register", (req, res) => {
     else {
       bcrypt.hash(trial_password_to_generate, SALT_ROUNDS, (err, pwd) => {
         if (err) throw err;
-        database.collection(db_collection).insertOne({
+        database.collection(account_collection).insertOne({
           username: trial_username_to_generate,
           password: pwd,
           expireAt: new Date(Date.now() + 1 * 24*3600*1000),
@@ -189,7 +190,7 @@ app.post("/t_register", (req, res) => {
 app.post("/t_login", (req, res) => {
   const { t_username, t_password} = req.body;
   console.log(t_username, t_password);
-  database.collection(db_collection).findOne({ username: t_username }, (err, user) => {
+  database.collection(account_collection).findOne({ username: t_username }, (err, user) => {
     if (err) throw err;
     if (user) {
       bcrypt.compare(t_password, user.password, (err, result) => {

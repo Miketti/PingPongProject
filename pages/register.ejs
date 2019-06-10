@@ -34,13 +34,13 @@
         <p class="register_p_l">If you just want to try or test Ultimate Ping Pong Tournament, you can generate a
             temporary trial account with ready-made username and password
             and there are no need for email address. However, trial accounts have some restrictions:</p>
-        <p class="register_p_l"><s style="color:black">&#8226 Trial accounts exists only 24 hours after creation. When
+        <p class="register_p_l">&#8226 Trial accounts exists only 24 hours after creation. When
                 the time expires, the
-                account and all its contents will be deleted.</s></p>
+                account and all its contents will be deleted.</p>
         <p class="register_p_l">&#8226 The username and the password of the trial account will be randomly generated and
             cannot be changed afterwards. Because no email is used,
             the password cannot be recovered if it is lost.</p>
-        <p class="register_p_l">&#8226 Possibilities to change user and/or game settings are not available with trial
+        <p class="register_p_l">&#8226 Possibilities to change user settings are not available with trial
             accounts.</p>
         <form action="/t_register" method="POST">
             <input type="hidden" id="tutg" name="trial_username_to_generate">
@@ -52,7 +52,7 @@
         function generate_trial() {
             let trialuser_name = "";
             let trialuser_pass = "";
-            const prefix = "user";
+            const prefix = "@user";
             const number = Math.floor(Math.random() * 899999) + 100000;
             const character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             trialuser_name = prefix + number.toString();

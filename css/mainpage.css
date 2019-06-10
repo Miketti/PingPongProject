@@ -2,6 +2,7 @@ body {
   background: orange;
   font-family: Arial, Helvetica, sans-serif;
   font-size: calc(10px + 0.5vw);
+  text-align: center;
 }
 
 .topbar {
@@ -22,73 +23,64 @@ body {
 
 .topbar button:hover {
     background: gray;
-  }
+}
 
-  .tournamentcontainer {
+.tournamentcontainer {
     background: white;
     padding: 1%;
     overflow: hidden;
     position: relative;
-  }
-  .lower_subcontainer {
     text-align: center;
-  }
+}
 
-  .tournamenttablecontainer {
-    text-align: center;
-    float:left;
-    width: 25%;
-  }
+.pre_next_div{
+  display: flex;
+  text-align: center;
+}
 
-  .previousroundcontainer {
-    text-align: center;
-    float:left;
-    width: 25%;
-  }
+.buttondiv {
+  display: flex;
+  text-align: center;
+}
 
-  .nextroundcontainer {
-    text-align: center;
-    float:left;
-    width: 25%;
-  }
-
-  .noticecontainer {
-    float:left;
-    width: 25%;
-  }
-  .tournamentresultstable {
+.tournamentresultstable {
     border-collapse: collapse;
-  }
+    width: 66%;
+}
 
-  .tournamentresultstable td, th {
-    border: 1px solid ;
+.tournamentresultstable td, th {
+    border: 1px solid;
+    text-align: center;
+    padding: 1%;
+    width: 6%;
+}
+
+.previousresultstable td {
     text-align: center;
     padding: 1%;
     width: 1%;
-  }
+}
 
-  .previousresultstable td {
+.nextresultstable td {
     text-align: center;
     padding: 1%;
     width: 1%;
-  }
+}
 
-  .nextresultstable td {
-    text-align: center;
-    padding: 1%;
-    width: 1%;
-  }
-
-  button {
+button {
     background: darkgreen;
     color: orange;
     padding: 1%;
     text-align: center;
     font-size: 1em;
-  }
+}
   
-  button:hover{
+button:hover{
     background:green;
     color: orange;
-  }
+}
   
+abbr { 
+    display: inline;
+    cursor: help;
+} 

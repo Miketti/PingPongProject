@@ -1,0 +1,29 @@
+{
+  "name": "PingPongProject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miketti/PingPongProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miketti/PingPongProject/issues"
+  },
+  "homepage": "https://github.com/Miketti/PingPongProject#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "mongodb": "^3.2.7"
+  }
+}
